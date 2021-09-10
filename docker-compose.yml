@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+  test_monupw: 
+    container_name: test_monupw
+    image: linju1020/monupw
+    build: ./
+    ports:
+      - 8081:80
