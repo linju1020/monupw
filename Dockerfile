@@ -33,7 +33,7 @@ ENV PKG_CONFIG_PATH $PKG_CONFIG_PATH:/opt/mono/lib/pkgconfig
 # install mono web server Jexus
 RUN cd /tmp && curl http://www.daqiao.io/5.6.4/install | sh
 
-RUN mkdir /data 
+RUN mkdir /data && mkdir /usr/jexus/jws
 #&& touch /data/x && mkdir /data/jwslog && mkdir /data/siteconf && mkdir /data/wwwroot
 #RUN cp /usr/jexus/siteconf/default /data/siteconf/
 #RUN cp /usr/jexus/jws.conf /usr/jexus/jws.conf.backup
