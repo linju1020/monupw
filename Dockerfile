@@ -3,6 +3,7 @@ FROM mono:5.0
 RUN  uname -a
 
 COPY sources.list /etc/apt/sources.list
+RUN apt-get install apt-transport-https
 RUN apt-get update
 RUN apt-get install curl
 #RUN apt-get install sudo
