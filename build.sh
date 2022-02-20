@@ -1,2 +1,2 @@
-docker image rm linju1020/monupw || true
-docker build -t linju1020/monupw .
+docker image rm linju1020/monupw:2 || true
+docker build -t linju1020/monupw:2 .
