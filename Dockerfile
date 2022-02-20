@@ -5,10 +5,9 @@ RUN apt update
 RUN apt install sudo
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
 RUN sudo apt install -y --force-yes apt-transport-https ca-certificates
+RUN sh -c "echo 'deb https://download.mono-project.com/repo/ubuntu stable-xenial main' | sudo tee /etc/apt/sources.list.d/mono-official-stable.list"
 
-#RUN sh -c "echo 'deb https://download.mono-project.com/repo/ubuntu stable-xenial main' | sudo tee /etc/apt/sources.list.d/mono-official-stable.list"
-#RUN apt update && sudo apt install -y --force-yes mono-devel mono-complete referenceassemblies-pcl openssh-server curl
-RUN /bin/sh -c echo "deb http://download.mono-project.com/repo/debian jessie/snapshots/5.0.1.1 main" > /etc/apt/sources.list.d/mono-official.list   && apt-get update   && apt-get install -y binutils mono-devel ca-certificates-mono fsharp mono-vbnc nuget referenceassemblies-pcl   && rm -rf /var/lib/apt/lists/* /tmp/*
+RUN apt update && sudo apt install -y --force-yes mono-devel mono-complete referenceassemblies-pcl openssh-server curl
 
 RUN sudo sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
 RUN mkdir -p /var/run/sshd && \
