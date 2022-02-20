@@ -17,16 +17,16 @@ FROM ubuntu:16.04
 #Install mono
 #RUN sudo apt-get install -y --force-yes mono-devel mono-complete referenceassemblies-pcl openssh-server curl
 
-RUN sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-RUN sudo apt install apt-transport-https ca-certificates
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+RUN apt install apt-transport-https ca-certificates
 RUN sh -c "echo 'deb https://download.mono-project.com/repo/ubuntu stable-xenial main' | sudo tee /etc/apt/sources.list.d/mono-official-stable.list"
-RUN sudo apt update
+RUN apt update
 
-RUN sudo apt install mono-devel
+RUN apt install mono-devel
 
 
 
-RUN sudo sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
+RUN sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
 RUN mkdir -p /var/run/sshd && \
       echo "root:monups" |chpasswd  && \
       useradd admin  &&  echo "admin:monupw" | chpasswd  &&  echo "admin   ALL=(ALL)       ALL" >> /etc/sudoers 
