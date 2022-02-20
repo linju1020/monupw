@@ -1,5 +1,12 @@
 FROM mono:5.0
 
+RUN  uname -a
+
+COPY sources.list /etc/apt/sources.list
+RUN apt-get update
+RUN apt-get install curl
+#RUN apt-get install sudo
+ 
 #set the PATH for mono-opt
 ENV PATH $PATH:/opt/mono/bin
 ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/opt/mono/lib
@@ -13,10 +20,10 @@ RUN mkdir /data
 #RUN cp /usr/jexus/siteconf/default /data/siteconf/
 #RUN cp /usr/jexus/jws.conf /usr/jexus/jws.conf.backup
 #RUN sed -i 's/SiteLogDir=log/SiteLogDir=/data/jwslog/g' /usr/jesus/jws.conf && sed -i 's/SiteConfigDir=siteconf/SiteConfigDir=/data/siteconf/g' /usr/jexus/jws.conf
-RUN sed -i "s/root=\/ \/var\/www\/default/root=\/ \/data/g" /usr/jexus/siteconf/default
+RUN  sed -i "s/root=\/ \/var\/www\/default/root=\/ \/data/g" /usr/jexus/siteconf/default
 
 # by LJG
-RUN sed -i 's/# export MONO_IOMAP="all"/export MONO_IOMAP="all"/' /usr/jexus/jws
+RUN  sed -i 's/# export MONO_IOMAP="all"/export MONO_IOMAP="all"/' /usr/jexus/jws
 
 VOLUME ["/data"]
 
