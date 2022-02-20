@@ -9,5 +9,5 @@ dockerfile for mono with jexus web server under ubuntu14.
 + ubuntu:16.04
 + Mono JIT compiler version 6.12.0.122
 + Jexus/7.0.22.116 Linux
-> 为了解决mssql写入null值报错的问题
+> 为了解决mssql写入null值报错的问题，但是新的问题是路径的大小写不能被忽略了
 
