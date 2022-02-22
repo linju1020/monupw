@@ -8,8 +8,8 @@ rm -rf jexus >/dev/null 2>&1
 
 #wget --no-check-certificate https://linuxdot.net/down/jexus-7.0.x-x64.tar.gz
 #tar -zxvf jexus-7.0.x-x64.tar.gz
-wget --no-check-certificate https://www.linuxdot.net/down/jexus-6.3.tar.gz
-tar -zxvf jexus-6.3.tar.gz
+wget --no-check-certificate https://linuxdot.net/down/jexus-6.2.tar.gz
+tar -zxvf jexus-6.2.tar.gz
 
 mv -f jexus /usr/
 cd /usr/jexus
