@@ -11,7 +11,11 @@ rm -rf jexus >/dev/null 2>&1
 wget --no-check-certificate https://linuxdot.net/down/jexus-6.2.tar.gz
 tar -zxvf jexus-6.2.tar.gz
 
-mv -f jexus /usr/
+mv jexus-6.2 jexus
+#mv -f jexus /usr/
+
+cd /tmp/jexus && sh install
+
 cd /usr/jexus
 chmod +x /usr/jexus/jws
 /usr/jexus/jws regsvr

@@ -24,7 +24,8 @@ ENV PKG_CONFIG_PATH $PKG_CONFIG_PATH:/opt/mono/lib/pkgconfig
 
 # install mono web server Jexus
 #RUN cd /tmp && curl https://jexus.org/release/x64/install.sh | sh
-RUN cd /tmp && curl https://raw.githubusercontent.com/linju1020/monupw/master/install.sh | sh
+COPY install.sh /tmp/install.sh
+RUN cd /tmp && sh install.sh
 
 RUN mkdir /data
 #&& touch /data/x && mkdir /data/jwslog && mkdir /data/siteconf && mkdir /data/wwwroot
@@ -53,8 +54,9 @@ EXPOSE 22  8081  80
 #ENTRYPOINT /usr/sbin/sshd -D 
 #CMD    ["/usr/sbin/sshd", "-D"]
 
-#CMD  /usr/jexus/jws start && /usr/sbin/sshd -D
-CMD /usr/sbin/sshd -D
+#CMD /usr/sbin/sshd -D
+CMD  /usr/jexus/jws start && /usr/sbin/sshd -D
+
 
 
 
