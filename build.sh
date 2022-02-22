@@ -1,3 +1,5 @@
+set -e
+
 docker stop abc || true
 docker rm abc || true
 
