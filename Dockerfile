@@ -7,7 +7,7 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E03280
 RUN sudo apt install -y --force-yes apt-transport-https ca-certificates
 RUN sh -c "echo 'deb https://download.mono-project.com/repo/ubuntu stable-xenial main' | sudo tee /etc/apt/sources.list.d/mono-official-stable.list"
 
-RUN apt update && sudo apt install -y --force-yes mono-devel mono-complete referenceassemblies-pcl openssh-server curl
+RUN apt update && sudo apt install -y --force-yes mono-devel=5.0 mono-complete referenceassemblies-pcl openssh-server curl
 
 RUN sudo sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
 RUN mkdir -p /var/run/sshd && \
