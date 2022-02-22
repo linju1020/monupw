@@ -24,8 +24,8 @@ ENV PKG_CONFIG_PATH $PKG_CONFIG_PATH:/opt/mono/lib/pkgconfig
 
 # install mono web server Jexus
 #RUN cd /tmp && curl https://jexus.org/release/x64/install.sh | sh
-COPY install.sh /tmp/install.sh
-RUN cd /tmp && sh install.sh
+COPY install_jexus.sh /tmp/install_jexus.sh
+RUN cd /tmp && sh install_jexus.sh
 
 RUN mkdir /data
 COPY data/* /data/
